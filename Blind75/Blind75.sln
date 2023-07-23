@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blind75", "Blind75.csproj", "{45E8B645-8B98-4F4D-BB66-35D4CEB7DC7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45E8B645-8B98-4F4D-BB66-35D4CEB7DC7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E8B645-8B98-4F4D-BB66-35D4CEB7DC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E8B645-8B98-4F4D-BB66-35D4CEB7DC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E8B645-8B98-4F4D-BB66-35D4CEB7DC7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B512B426-FEB0-49FB-9E08-921D5F0A5E3A}
+	EndGlobalSection
+EndGlobal
