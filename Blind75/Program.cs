@@ -1,4 +1,5 @@
 ﻿using Blind75.Arrays;
+using Blind75.LinkedList;
 using Blind75.Stack;
 using System;
 
@@ -8,7 +9,7 @@ namespace Blind75
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(GroupAnagrams.Handle());
+            RemoveNthNodeFromEndofList.Handle();
         }
     }
 }
