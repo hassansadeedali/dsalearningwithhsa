@@ -1,5 +1,5 @@
-﻿using Blind75.Trees;
-using Blind75.Two_Pointers;
+﻿using Blind75.Arrays;
+using Blind75.Stack;
 using System;
 
 namespace Blind75
@@ -8,7 +8,7 @@ namespace Blind75
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(InvertBinaryTree.Handle());
+            Console.WriteLine(GroupAnagrams.Handle());
         }
     }
 }
