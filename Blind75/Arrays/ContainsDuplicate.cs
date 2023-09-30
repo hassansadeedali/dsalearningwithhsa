@@ -2,6 +2,10 @@
 
 namespace Blind75
 {
+    /*
+     * Given an integer array nums, return true if any value appears at
+     * twice in the array, and return false if every element is distinct.
+     */
     public static class ContainsDuplicate
     {
         // read input
