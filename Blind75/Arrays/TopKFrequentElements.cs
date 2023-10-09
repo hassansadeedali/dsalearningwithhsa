@@ -15,7 +15,7 @@ namespace Blind75.Arrays
         //Output: [1,2]
         public static int[] Handle()
         {
-            int[] arr = new int[k];
+            int[] res = new int[k];
             var dict = new Dictionary<int, int>();
 
             for (int i = 0; i < nums.Length; i++)
@@ -27,9 +27,23 @@ namespace Blind75.Arrays
             }
 
             //No support for PriorityQueue in .Net 5
-            //var pq = new PriorityQueue<int, int>();
+            //Elements sorted in min to max of feequency
+            var pq = new PriorityQueue<int, int>();
 
-            return null;
+            foreach(var item in dict)
+            {
+                pq.Enqueue(item.Key, item.Value);
+
+                if (pq.Count > k)
+                    pq.Dequeue();
+            }
+
+            for (int i=0;i< k; i++)
+            {
+                res[i] = pq.Dequeue();
+            }
+
+            return res;
         }
     }
 }
