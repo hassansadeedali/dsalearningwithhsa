@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Blind75.Graphs
 {
     public class PacificAtlanticWaterFlow
     {
         public static int[][] heights =
-            {
-                new int[]{1,2,2,3,5},
-                new int[]{3,2,3,4,4},
-                new int[]{2,4,5,3,1},
-                new int[]{ 6, 7, 1, 4, 5 },
-                new int[]{ 5,1,1,2,4 }
-            };
+        {
+            new int[]{ 1, 2, 2, 3, 5},
+            new int[]{ 3, 2, 3, 4, 4},
+            new int[]{ 2, 4, 5, 3, 1},
+            new int[]{ 6, 7, 1, 4, 5},
+            new int[]{ 5, 1, 1, 2, 4}
+        };
 
         public static IList<IList<int>> Handle()
         {
@@ -33,13 +29,13 @@ namespace Blind75.Graphs
             for (int row = 0; row < rows; row++)
             {
                 DFS(row, 0, heights, isPacific, heights[row][0]);
-                DFS(row, cols, heights, isAtlantic, heights[row][cols]);
+                DFS(row, cols-1, heights, isAtlantic, heights[row][cols-1]);
             }
 
             for (int col = 0; col < cols; col++)
             {
                 DFS(0, col, heights, isPacific, heights[0][col]);
-                DFS(rows, col, heights, isAtlantic, heights[0][col]);
+                DFS(rows-1, col, heights, isAtlantic, heights[rows-1][col]);
             }
 
             for (int row = 0; row < rows; row++)

@@ -22,31 +22,28 @@ namespace Blind75.Graphs
         //public static int[][] prerequisites = { new int[] { 1, 0 }, new int[] { 0, 1 } };
         public static bool Handle()
         {
-            var preMap = new Dictionary<int,List<int>>();
+            var preMap = new Dictionary<int, List<int>>();
             var visited = new HashSet<int>();
 
+            for (int i = 0; i < numCourses; i++)
+            {
+                preMap.Add(i, new List<int>());
+            }
+
+            //Creating a premap of all prerequisiste courses to take for a given course
             foreach (var course in prerequisites)
             {
-                //Course to Take - course[0]
-                //Course Prereq - course[1]
-
-                if (preMap[course[0]] == null)
-                {
-                    var list = new List<int>();
-                    list.Add(course[1]);
-                    preMap[course[0]] = list;
-                }
-                else
-                {
-                    preMap[course[0]].Add(course[1]);
-                }
+                var courseToTake = course[0];
+                var coursePrereq = course[1];
+                preMap[courseToTake].Add(coursePrereq);
             }
 
             foreach (int c in Enumerable.Range(0, numCourses))
             {
-                if (!DFS(c, visited,preMap))
+                if (!DFS(c, visited, preMap))
                     return false;
             }
+
             return true;
         }
 
@@ -55,7 +52,7 @@ namespace Blind75.Graphs
             if (visited.Contains(course))
                 return false;
 
-            if (preMap[course].Count == 0)
+            if (preMap[course] == new List<int>())
                 return true;
 
             visited.Add(course);
