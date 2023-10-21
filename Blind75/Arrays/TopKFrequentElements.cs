@@ -27,7 +27,9 @@ namespace Blind75.Arrays
             }
 
             //No support for PriorityQueue in .Net 5
-            //Elements sorted in min to max of feequency
+
+            //Elements sorted in min to max of frequency
+            //While dequeue, minimum frequency will be removed(Element from index 0)
             var pq = new PriorityQueue<int, int>();
 
             foreach(var item in dict)

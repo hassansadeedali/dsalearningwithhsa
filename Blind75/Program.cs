@@ -1,4 +1,5 @@
 ﻿using Blind75.Arrays;
+using Blind75.Heap;
 using Blind75.LinkedList;
 using Blind75.Sliding_Window;
 using Blind75.Stack;
@@ -12,7 +13,7 @@ namespace Blind75
     {
         static void Main(string[] args)
         {
-            TopKFrequentElements.Handle();
+            LastStoneWeight.Handle();
         }
     }
 }

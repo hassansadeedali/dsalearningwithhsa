@@ -26,7 +26,6 @@ namespace Blind75.Heap
         //we combine 2 and 1 to get 1 so the array converts to[1, 1, 1] then,
         //we combine 1 and 1 to get 0 so the array converts to[1] then that's the value of the last stone.
 
-
         private static PriorityQueue<int, int> pq;
 
         //This method is required since we have to sort max to min
@@ -40,6 +39,8 @@ namespace Blind75.Heap
         public static int Handle()
         {
             pq = new PriorityQueue<int, int>(new MaxHeapComparer());
+            //var pq = new PriorityQueue<int, int>(Comparer<int>.Create((x, y) => y - x));
+
             AddStones(stones);
             ComputeLastStoneWeight();
             return pq.Count == 0 ? 0 : pq.Dequeue();
@@ -55,14 +56,15 @@ namespace Blind75.Heap
 
         private static void ComputeLastStoneWeight()
         {
-            while (pq.Count > 0)
+            //While dequeue, top weight will be removed(Element from index 0)
+            while (pq.Count > 1)
             {
                 var x = pq.Dequeue();
                 var y = pq.Dequeue();
 
                 if (x != y)
                 {
-                    var diff = y - x;
+                    var diff = x - y;
                     pq.Enqueue(diff, diff);
                 }
             }
