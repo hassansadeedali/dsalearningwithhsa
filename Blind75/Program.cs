@@ -1,4 +1,5 @@
 ﻿using Blind75.Arrays;
+using Blind75.Backtracking;
 using Blind75.Graphs;
 using Blind75.Heap;
 using Blind75.LinkedList;
@@ -14,7 +15,7 @@ namespace Blind75
     {
         static void Main(string[] args)
         {
-            CourseSchedule.Handle();
+            CombinationSum.Handle();
         }
     }
 }
