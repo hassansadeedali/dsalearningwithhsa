@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Blind75.Greedy
 {
@@ -18,7 +19,7 @@ namespace Blind75.Greedy
             int maxSum = nums[0];
             int currSum = 0;
 
-            for(int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
                 if (currSum < 0)
                     currSum = 0;
@@ -29,6 +30,32 @@ namespace Blind75.Greedy
 
             return maxSum;
         }
-    
+
+        //Maximum Product Subarray
+        /*
+        Given an integer array nums, find a subarray that has the 
+        largest product, and return the product.
+
+        The test cases are generated so that the answer will fit in a 
+        32-bit integer.
+        */
+
+        public int MaxProduct(int[] nums)
+        {
+            int res = nums[0];
+            int minProd = 1;
+            int maxProd = 1;
+
+            foreach (var num in nums)
+            {
+                var prod = maxProd * num;
+                maxProd = new int[] { num, num * minProd, prod }.Max();
+                minProd = new int[] { num, num * minProd, prod }.Min();
+
+                res = Math.Max(res, maxProd);
+            }
+
+            return res;
+        }
     }
 }
