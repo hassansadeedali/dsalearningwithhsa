@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Blind75.Backtracking
 {
@@ -76,5 +78,55 @@ namespace Blind75.Backtracking
 
         }
         */
+
+        /*
+        Given a collection of candidate numbers (candidates) and a target number 
+        (target), find all unique combinations in candidates where the candidate 
+        numbers sum to target.
+
+        Each number in candidates may only be used once in the combination.
+        
+        Note: The solution set must not contain duplicate combinations.
+
+        Example 1:
+        
+        Input: candidates = [10,1,2,7,6,1,5], target = 8
+        Output: 
+        [
+        [1,1,6],
+        [1,2,5],
+        [1,7],
+        [2,6]
+        ]
+        */
+
+        public IList<IList<int>> CombinationSum2(int[] candidates, int target)
+        {
+            Array.Sort(candidates);
+            DFS(0, new List<int>(), 0, candidates, target);
+            return result;
+        }
+
+        private void DFS(int index, List<int> combination, int sum, int[] candidates, int target)
+        {
+            if (sum == target)
+            {
+                result.Add(new List<int>(combination));
+                return;
+            }
+
+            if (sum > target || index >= candidates.Length)
+                return;
+
+            combination.Add(candidates[index]);
+            DFS(index + 1, combination, sum + candidates[index], candidates, target);
+
+            combination.Remove(combination.Last());
+            while (index + 1 < candidates.Length && candidates[index] == candidates[index + 1])
+                index += 1;
+
+            DFS(index + 1, combination, sum, candidates, target);
+
+        }
     }
 }
